@@ -10,12 +10,12 @@ if [ -f "$TEST_FILE" ]; then
 
     # Проверка кода возврата последней команды (успех или ошибка)
     if [ $? -ne 0 ]; then
-        echo "Тесты в $TEST_FILE не прошли. Коммит отменён."
+        echo "Тесты в $TEST_FILE не прошли. Push отменён."
         exit 1
     else
-        echo "Тесты в $TEST_FILE прошли успешно."
+        echo "Тесты в $TEST_FILE прошли успешно. Push выполняется."
     fi
 else
-    echo "Файл $TEST_FILE не найден. Коммит отменён."
+    echo "Файл $TEST_FILE не найден. Push отменён."
     exit 1
 fi
