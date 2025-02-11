@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Путь к файлу test.py
+TEST_FILE="test.py"
+
+# Проверка, что файл test.py существует
+if [ -f "$TEST_FILE" ]; then
+    # Запуск теста с использованием Python
+    python3 "$TEST_FILE"
+
+    # Проверка кода возврата последней команды (успех или ошибка)
+    if [ $? -ne 0 ]; then
+        echo "Тесты в $TEST_FILE не прошли. Push отменён."
+        exit 1
+    else
+        echo "Тесты в $TEST_FILE прошли успешно. Push выполняется."
+    fi
+else
+    echo "Файл $TEST_FILE не найден. Push отменён."
+    exit 1
+fi
